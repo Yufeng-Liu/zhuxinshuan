@@ -1,0 +1,561 @@
+/* ===== 首页样式 ===== */
+
+.home-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* 欢迎横幅 */
+.welcome-banner {
+  background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,250,205,0.9));
+  border-radius: 30px;
+  padding: 40px 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  border: 4px solid var(--primary-pink);
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-banner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,182,193,0.1) 0%, transparent 70%);
+  animation: rotate 20s linear infinite;
+}
+
+.welcome-title {
+  font-size: 36px;
+  color: var(--text-primary);
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.welcome-subtitle {
+  font-size: 20px;
+  color: var(--text-secondary);
+  position: relative;
+  z-index: 1;
+}
+
+.welcome-character {
+  font-size: 70px;
+  margin: 20px 0;
+  animation: bounce 2s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
+}
+
+/* 功能模块网格 */
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-bottom: 35px;
+}
+
+.module-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(255,250,205,0.9));
+  border-radius: 25px;
+  padding: 30px 25px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  border: 3px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.module-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.6s ease;
+}
+
+.module-card:hover::before {
+  left: 100%;
+}
+
+.module-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+  border-color: var(--primary-pink);
+}
+
+.module-card:active {
+  transform: translateY(-5px) scale(0.98);
+}
+
+.module-icon {
+  font-size: 65px;
+  margin-bottom: 18px;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.module-card:hover .module-icon {
+  transform: scale(1.15) rotate(5deg);
+}
+
+.module-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.module-desc {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.module-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--btn-primary), #ff5252);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 15px;
+  box-shadow: 0 3px 10px rgba(255,107,107,0.3);
+}
+
+/* 闯关模式特殊卡片 */
+.challenge-section {
+  background: linear-gradient(135deg, rgba(255,182,193,0.2), rgba(135,206,235,0.2));
+  border-radius: 30px;
+  padding: 35px 30px;
+  margin-bottom: 30px;
+  border: 3px dashed var(--primary-pink);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chapter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.chapter-card {
+  background: white;
+  border-radius: 20px;
+  padding: 25px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  border: 3px solid transparent;
+  position: relative;
+}
+
+.chapter-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  border-color: var(--btn-secondary);
+}
+
+.chapter-card.locked {
+  opacity: 0.6;
+  cursor: not-allowed;
+  filter: grayscale(0.5);
+}
+
+.chapter-card.locked:hover {
+  transform: none;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  border-color: transparent;
+}
+
+.chapter-icon {
+  font-size: 55px;
+  margin-bottom: 12px;
+}
+
+.chapter-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.chapter-progress {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.progress-bar-mini {
+  width: 100%;
+  height: 12px;
+  background: #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.progress-bar-mini-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--success), var(--btn-secondary));
+  border-radius: 6px;
+  transition: width 0.5s ease;
+}
+
+.chapter-status {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 15px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.status-locked {
+  background: #e0e0e0;
+  color: #999;
+}
+
+.status-in-progress {
+  background: var(--primary-yellow);
+  color: var(--text-primary);
+}
+
+.status-completed {
+  background: var(--success);
+  color: white;
+}
+
+/* 快速开始按钮 */
+.quick-start-btn {
+  width: 100%;
+  padding: 22px;
+  background: linear-gradient(135deg, var(--btn-secondary), #45b7aa);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 18px rgba(78,205,196,0.35);
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.quick-start-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(78,205,196,0.45);
+}
+
+.quick-start-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* 学习统计概览 */
+.stats-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 20px;
+  padding: 22px 18px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  border: 2px solid var(--primary-pink);
+}
+
+.stat-icon {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--btn-primary);
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .welcome-title {
+    font-size: 28px;
+  }
+  
+  .welcome-subtitle {
+    font-size: 17px;
+  }
+  
+  .welcome-character {
+    font-size: 55px;
+  }
+  
+  .modules-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  
+  .module-card {
+    padding: 24px 20px;
+  }
+  
+  .module-icon {
+    font-size: 55px;
+  }
+  
+  .module-title {
+    font-size: 21px;
+  }
+  
+  .section-title {
+    font-size: 23px;
+  }
+  
+  .chapter-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-overview {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .quick-start-btn {
+    font-size: 19px;
+    padding: 18px;
+  }
+}
+
+/* ===== Pad/平板适配 (768px - 1366px) ===== */
+@media (min-width: 768px) and (max-width: 1366px) {
+  .home-container {
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .welcome-banner {
+    padding: 35px 40px;
+    border-radius: 35px;
+    margin-bottom: 32px;
+  }
+
+  .welcome-character {
+    font-size: 75px;
+  }
+
+  .welcome-title {
+    font-size: 36px;
+    margin-bottom: 12px;
+  }
+
+  .welcome-subtitle {
+    font-size: 21px;
+  }
+
+  .stats-overview {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    margin-bottom: 35px;
+  }
+
+  .stat-card {
+    padding: 25px 18px;
+    border-radius: 22px;
+  }
+
+  .stat-icon {
+    font-size: 38px;
+  }
+
+  .stat-value {
+    font-size: 28px;
+  }
+
+  .stat-label {
+    font-size: 16px;
+  }
+
+  .section-title {
+    font-size: 28px;
+    margin-bottom: 25px;
+  }
+
+  .modules-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-bottom: 35px;
+  }
+
+  .module-card {
+    padding: 32px 26px;
+    border-radius: 28px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .module-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  }
+
+  .module-icon {
+    font-size: 65px;
+    margin-bottom: 18px;
+  }
+
+  .module-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .module-desc {
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  .chapter-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  .chapter-card {
+    padding: 32px 28px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .chapter-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+  }
+
+  .chapter-header {
+    margin-bottom: 20px;
+  }
+
+  .chapter-icon {
+    font-size: 55px;
+    margin-bottom: 12px;
+  }
+
+  .chapter-title {
+    font-size: 24px;
+  }
+
+  .chapter-badge {
+    font-size: 14px;
+    padding: 6px 14px;
+  }
+
+  .chapter-description {
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .progress-bar-container {
+    height: 14px;
+    border-radius: 10px;
+    margin-bottom: 18px;
+  }
+
+  .progress-fill {
+    height: 100%;
+    border-radius: 10px;
+  }
+
+  .progress-text {
+    font-size: 15px;
+  }
+
+  .start-chapter-btn {
+    width: 100%;
+    padding: 16px 28px;
+    font-size: 19px;
+    min-height: 54px;
+    border-radius: 25px;
+  }
+
+  .quick-start-section {
+    margin-top: 35px;
+    text-align: center;
+  }
+
+  .quick-start-btn {
+    font-size: 23px;
+    padding: 22px 50px;
+    min-height: 64px;
+    border-radius: 35px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+}
+
+@media (min-width: 769px) and (orientation: landscape) {
+  .home-container {
+    max-width: 1400px;
+  }
+
+  .welcome-banner {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    text-align: left;
+  }
+
+  .welcome-character {
+    font-size: 90px;
+  }
+
+  .modules-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .chapter-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

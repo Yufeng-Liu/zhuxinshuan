@@ -1,0 +1,865 @@
+/* ===== 游戏和闯关页面样式 ===== */
+
+.game-container {
+  max-width: 950px;
+  margin: 0 auto;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+/* 游戏头部信息 */
+.game-header {
+  background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(255,250,205,0.95));
+  border-radius: 25px;
+  padding: 22px 28px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.1);
+  border: 3px solid var(--primary-pink);
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.game-info-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.game-chapter-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.game-level-name {
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+
+.game-info-right {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.game-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.stat-icon-small {
+  font-size: 26px;
+}
+
+.stat-value-small {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--btn-primary);
+}
+
+/* 游戏主区域 */
+.game-main-area {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+
+.game-question-area {
+  background: white;
+  border-radius: 25px;
+  padding: 30px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  border: 3px solid var(--primary-blue);
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.question-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.question-number-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--btn-primary), #ff5252);
+  color: white;
+  padding: 8px 22px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.question-text {
+  font-size: 28px;
+  color: var(--text-primary);
+  font-weight: bold;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.question-hint {
+  font-size: 17px;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-top: 12px;
+  padding: 12px 18px;
+  background: var(--primary-yellow);
+  border-radius: 15px;
+  border-left: 4px solid var(--btn-secondary);
+}
+
+.visual-aid-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+  min-height: 200px;
+}
+
+.visual-aid-image {
+  font-size: 100px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.equation-display {
+  font-size: 42px;
+  font-weight: bold;
+  color: var(--text-primary);
+  text-align: center;
+  padding: 25px;
+  background: linear-gradient(135deg, #E8F5E9, #F1F8E9);
+  border-radius: 20px;
+  box-shadow: inset 0 3px 10px rgba(0,0,0,0.05);
+  letter-spacing: 4px;
+}
+
+/* 答题区域 */
+.answer-area {
+  background: white;
+  border-radius: 25px;
+  padding: 28px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  border: 3px solid var(--primary-yellow);
+}
+
+.answer-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.answer-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.answer-input {
+  width: 100%;
+  padding: 16px 20px;
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  border: 3px solid var(--primary-blue);
+  border-radius: 20px;
+  outline: none;
+  transition: all 0.3s ease;
+  background: #FAFAFA;
+  color: var(--text-primary);
+}
+
+.answer-input:focus {
+  border-color: var(--btn-secondary);
+  box-shadow: 0 0 0 4px rgba(78,205,196,0.2);
+  transform: scale(1.02);
+}
+
+.answer-options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.answer-option-btn {
+  padding: 18px;
+  font-size: 26px;
+  font-weight: bold;
+  border: 3px solid var(--primary-blue);
+  border-radius: 18px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text-primary);
+}
+
+.answer-option-btn:hover {
+  background: var(--primary-yellow);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  border-color: var(--btn-secondary);
+}
+
+.answer-option-btn.selected {
+  background: var(--btn-secondary);
+  color: white;
+  border-color: var(--btn-secondary);
+  transform: scale(1.05);
+}
+
+.answer-option-btn.correct {
+  background: var(--success);
+  color: white;
+  border-color: var(--success);
+  animation: correctPulse 0.6s ease;
+}
+
+.answer-option-btn.wrong {
+  background: var(--error);
+  color: white;
+  border-color: var(--error);
+  animation: shake 0.5s ease;
+}
+
+.submit-answer-btn {
+  width: 100%;
+  padding: 18px;
+  margin-top: 15px;
+  background: linear-gradient(135deg, var(--btn-primary), #ff5252);
+  color: white;
+  border: none;
+  border-radius: 22px;
+  font-size: 21px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255,107,107,0.35);
+}
+
+.submit-answer-btn:hover:not(:disabled) {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(255,107,107,0.45);
+}
+
+.submit-answer-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.attempts-display {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.attempt-heart {
+  font-size: 28px;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.attempt-heart.lost {
+  opacity: 0.3;
+  filter: grayscale(1);
+  transform: scale(0.8);
+}
+
+/* 游戏结果弹窗 */
+.result-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(8px);
+  z-index: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.result-content {
+  background: linear-gradient(135deg, white, #FFF9C4);
+  border-radius: 35px;
+  padding: 45px 40px;
+  text-align: center;
+  max-width: 520px;
+  width: 90%;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+  animation: resultBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  border: 5px solid var(--primary-pink);
+  position: relative;
+  overflow: hidden;
+}
+
+.result-content::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,215,0,0.15) 0%, transparent 70%);
+  animation: rotate 10s linear infinite;
+}
+
+.result-emoji {
+  font-size: 90px;
+  margin-bottom: 18px;
+  animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: relative;
+  z-index: 1;
+}
+
+.result-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.result-message {
+  font-size: 20px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 25px;
+  position: relative;
+  z-index: 1;
+}
+
+.stars-earned {
+  font-size: 48px;
+  margin: 20px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.star-animate {
+  display: inline-block;
+  animation: starPop 0.5s ease-out backwards;
+}
+
+.star-animate:nth-child(1) { animation-delay: 0.1s; }
+.star-animate:nth-child(2) { animation-delay: 0.3s; }
+.star-animate:nth-child(3) { animation-delay: 0.5s; }
+
+.badge-earned {
+  display: inline-block;
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  color: white;
+  padding: 12px 28px;
+  border-radius: 25px;
+  font-size: 19px;
+  font-weight: bold;
+  margin: 15px 0 25px;
+  box-shadow: 0 5px 15px rgba(255,215,0,0.4);
+  position: relative;
+  z-index: 1;
+  animation: badgeShine 2s ease-in-out infinite;
+}
+
+.result-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.result-btn {
+  padding: 15px 32px;
+  border: none;
+  border-radius: 22px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.btn-next-level {
+  background: linear-gradient(135deg, var(--btn-secondary), #45b7aa);
+  color: white;
+}
+
+.btn-next-level:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 18px rgba(78,205,196,0.4);
+}
+
+.btn-retry {
+  background: linear-gradient(135deg, var(--btn-primary), #ff5252);
+  color: white;
+}
+
+.btn-retry:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 18px rgba(255,107,107,0.4);
+}
+
+.btn-home {
+  background: linear-gradient(135deg, #9E9E9E, #757575);
+  color: white;
+}
+
+.btn-home:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+/* 关卡选择页面 */
+.level-select-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 18px;
+  margin-top: 25px;
+}
+
+.level-card {
+  aspect-ratio: 1;
+  background: white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  border: 3px solid transparent;
+  position: relative;
+}
+
+.level-card:hover:not(.locked) {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  border-color: var(--btn-secondary);
+}
+
+.level-card.completed {
+  background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+  border-color: var(--success);
+}
+
+.level-card.current {
+  background: linear-gradient(135deg, #FFF9C4, #FFE082);
+  border-color: #FFC107;
+  animation: currentPulse 2s ease-in-out infinite;
+}
+
+.level-card.locked {
+  background: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.level-card.locked::after {
+  content: '🔒';
+  position: absolute;
+  font-size: 30px;
+  opacity: 0.6;
+}
+
+.level-number {
+  font-size: 38px;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.level-stars {
+  font-size: 18px;
+}
+
+.level-status-text {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
+
+/* 连连看游戏 */
+.matching-game-area {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 25px;
+  align-items: start;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.match-column {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.match-item {
+  background: white;
+  padding: 18px 22px;
+  border-radius: 18px;
+  text-align: center;
+  font-size: 19px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  border: 3px solid transparent;
+}
+
+.match-item:hover:not(.matched):not(.selected) {
+  background: var(--primary-yellow);
+  transform: translateX(5px);
+  border-color: var(--primary-blue);
+}
+
+.match-item.selected {
+  background: var(--btn-secondary);
+  color: white;
+  border-color: var(--btn-secondary);
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(78,205,196,0.35);
+}
+
+.match-item.matched {
+  background: var(--success);
+  color: white;
+  border-color: var(--success);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.match-item.wrong {
+  background: var(--error);
+  color: white;
+  border-color: var(--error);
+  animation: shake 0.5s ease;
+}
+
+.match-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  color: var(--primary-pink);
+  padding-top: 80px;
+}
+
+/* 响应式 */
+@media (max-width: 900px) {
+  .game-main-area {
+    grid-template-columns: 1fr;
+  }
+  
+  .matching-game-area {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  
+  .match-center {
+    display: none;
+  }
+  
+  .answer-options-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .game-header {
+    padding: 16px 20px;
+  }
+  
+  .game-question-area {
+    padding: 22px;
+    min-height: 320px;
+  }
+  
+  .question-text {
+    font-size: 23px;
+  }
+  
+  .equation-display {
+    font-size: 32px;
+    padding: 18px;
+  }
+  
+  .result-content {
+    padding: 32px 28px;
+  }
+  
+  .result-title {
+    font-size: 28px;
+  }
+  
+  .result-emoji {
+    font-size: 70px;
+  }
+  
+  .level-select-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 14px;
+  }
+}
+
+/* ===== Pad/平板适配 (768px - 1366px) ===== */
+@media (min-width: 768px) and (max-width: 1366px) {
+  .game-container {
+    max-width: 1100px;
+  }
+
+  .game-header {
+    padding: 26px 32px;
+    border-radius: 30px;
+    gap: 20px;
+  }
+
+  .game-chapter-name {
+    font-size: 23px;
+  }
+
+  .game-level-name {
+    font-size: 18px;
+  }
+
+  .game-info-right {
+    gap: 25px;
+  }
+
+  .stat-icon-small {
+    font-size: 30px;
+  }
+
+  .stat-value-small {
+    font-size: 20px;
+  }
+
+  .game-main-area {
+    grid-template-columns: 1fr 380px;
+    gap: 30px;
+  }
+
+  .game-question-area {
+    padding: 35px;
+    border-radius: 30px;
+    min-height: 450px;
+  }
+
+  .question-number-badge {
+    padding: 10px 26px;
+    font-size: 18px;
+    border-radius: 22px;
+  }
+
+  .question-text {
+    font-size: 31px;
+  }
+
+  .equation-display {
+    font-size: 42px;
+    padding: 24px 28px;
+    border-radius: 20px;
+    min-height: 70px;
+  }
+
+  .visual-display {
+    font-size: 38px;
+    padding: 20px;
+    min-height: 80px;
+  }
+
+  .hint-box {
+    padding: 16px 22px;
+    font-size: 17px;
+    border-radius: 15px;
+  }
+
+  .options-container {
+    gap: 18px;
+    margin-top: 28px;
+  }
+
+  .answer-option-btn {
+    padding: 20px 30px;
+    font-size: 23px;
+    min-height: 62px;
+    border-radius: 20px;
+  }
+
+  .game-sidebar {
+    border-radius: 30px;
+    padding: 28px;
+  }
+
+  .sidebar-section-title {
+    font-size: 19px;
+  }
+
+  .abacus-sidebar canvas {
+    max-height: 320px !important;
+  }
+
+  .value-display-sidebar {
+    font-size: 26px;
+    padding: 12px 20px;
+  }
+
+  .attempts-display {
+    font-size: 22px;
+  }
+
+  .attempt-heart {
+    font-size: 26px;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .action-btn {
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 18px;
+    min-height: 56px;
+    border-radius: 18px;
+  }
+
+  .result-content {
+    padding: 45px 40px;
+    border-radius: 35px;
+  }
+
+  .result-title {
+    font-size: 34px;
+  }
+
+  .result-message {
+    font-size: 21px;
+  }
+
+  .result-emoji {
+    font-size: 90px;
+  }
+
+  .stars-earned {
+    font-size: 48px;
+  }
+
+  .result-actions {
+    gap: 18px;
+    margin-top: 35px;
+  }
+
+  .result-btn {
+    padding: 18px 36px;
+    font-size: 19px;
+    min-height: 58px;
+    border-radius: 25px;
+  }
+
+  .level-select-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+  }
+
+  .level-card {
+    padding: 22px 16px;
+    border-radius: 22px;
+  }
+
+  .level-card-icon {
+    font-size: 42px;
+  }
+
+  .level-card-name {
+    font-size: 17px;
+  }
+
+  .chapter-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 28px;
+  }
+
+  .chapter-card {
+    padding: 30px;
+    border-radius: 30px;
+  }
+
+  .chapter-icon {
+    font-size: 52px;
+  }
+
+  .chapter-title {
+    font-size: 24px;
+  }
+
+  .match-game-area,
+  .teaching-content {
+    padding: 35px;
+    border-radius: 30px;
+  }
+
+  .match-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .match-card {
+    padding: 22px 16px;
+    font-size: 20px;
+    min-height: 90px;
+    border-radius: 18px;
+  }
+
+  .teaching-story {
+    font-size: 20px;
+    line-height: 1.8;
+  }
+
+  .teaching-step {
+    padding: 18px 24px;
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+
+  .mixed-challenge-header {
+    font-size: 26px;
+  }
+}
+
+@media (min-width: 769px) and (orientation: landscape) and (max-height: 800px) {
+  .game-main-area {
+    grid-template-columns: 1fr 320px;
+    gap: 20px;
+  }
+
+  .game-question-area {
+    min-height: 350px;
+    padding: 25px;
+  }
+
+  .equation-display {
+    font-size: 34px;
+    padding: 18px 22px;
+  }
+
+  .answer-option-btn {
+    padding: 16px 24px;
+    font-size: 20px;
+    min-height: 54px;
+  }
+}

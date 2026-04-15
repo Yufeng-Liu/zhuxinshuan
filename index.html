@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="珠心算入门学习应用 - 适合6岁儿童的趣味算盘学习工具">
+    <title>🧮 珠心算小乐园 - 和算算一起学算盘</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/abacus.css">
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- 加载页面 -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-character">🐻</div>
+            <h2 class="loading-text">珠心算小乐园</h2>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <p class="loading-tip">算算正在准备中...</p>
+        </div>
+    </div>
+
+    <!-- 主应用容器 -->
+    <div id="app" class="app-container" style="display: none;">
+        
+        <!-- 顶部导航栏 -->
+        <header class="top-nav">
+            <div class="nav-left">
+                <button class="nav-btn home-btn" onclick="App.navigate('home')" title="首页">🏠</button>
+            </div>
+            <div class="nav-center">
+                <h1 class="app-title">🧮 珠心算小乐园</h1>
+            </div>
+            <div class="nav-right">
+                <button class="nav-btn progress-btn" onclick="App.navigate('progress')" title="学习进度">📊</button>
+                <button class="nav-btn fullscreen-btn" onclick="App.toggleFullscreen()" title="全屏模式">⛶</button>
+                <button class="nav-btn settings-btn" onclick="App.toggleSettings()" title="设置">⚙️</button>
+            </div>
+        </header>
+
+        <!-- 主内容区域 - 通过JS动态切换页面 -->
+        <main id="main-content" class="main-content">
+            <!-- 首页内容将由 JS 动态加载 -->
+        </main>
+
+        <!-- 卡通角色区域（固定在底部） -->
+        <div id="character-area" class="character-area">
+            <div class="character-container">
+                <canvas id="character-canvas" width="150" height="180"></canvas>
+                <div id="character-dialog" class="character-dialog">
+                    <p id="dialog-text"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 设置面板 -->
+        <div id="settings-panel" class="settings-panel" style="display: none;">
+            <div class="settings-content">
+                <h3>⚙️ 设置</h3>
+                <div class="setting-item">
+                    <label>🔊 音效开关</label>
+                    <input type="checkbox" id="sound-toggle" checked onchange="App.toggleSound()">
+                </div>
+                <div class="setting-item">
+                    <label>👀 护眼模式</label>
+                    <input type="checkbox" id="eye-care-toggle" checked onchange="App.toggleEyeCare()">
+                </div>
+                <div class="setting-item">
+                    <label>🎵 背景音乐</label>
+                    <input type="checkbox" id="bgm-toggle" onchange="App.toggleBGM()">
+                </div>
+                <button class="close-settings-btn" onclick="App.toggleSettings()">关闭 ✖️</button>
+            </div>
+        </div>
+
+        <!-- 通用弹窗 -->
+        <div id="modal-overlay" class="modal-overlay" style="display: none;" onclick="Modal.close()">
+            <div id="modal-content" class="modal-content" onclick="event.stopPropagation()">
+                <div id="modal-body"></div>
+            </div>
+        </div>
+
+        <!-- 护眼提醒弹窗 -->
+        <div id="eye-care-modal" class="eye-care-modal" style="display: none;">
+            <div class="eye-care-content">
+                <div class="eye-care-icon">👀</div>
+                <h2>小眼睛要休息啦！</h2>
+                <p>算算陪你一起看看远处吧~</p>
+                <div class="eye-care-animation">
+                    <div class="eye-exercise">👁️ ↔️ 👁️</div>
+                </div>
+                <div class="countdown-timer" id="eye-care-timer">60秒</div>
+            </div>
+        </div>
+
+        <!-- 底部信息栏 -->
+        <footer class="footer-info">
+            <span class="stars-display">⭐ <span id="total-stars">0</span></span>
+            <span class="session-time">⏱️ <span id="session-time-display">00:00</span></span>
+        </footer>
+    </div>
+
+    <!-- JavaScript 模块 -->
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/abacus.js"></script>
+    <script src="js/character.js"></script>
+    <script src="js/ui-components.js"></script>
+    <script src="js/game-engine.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

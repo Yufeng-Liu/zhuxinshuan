@@ -1,0 +1,447 @@
+/* ===== 动画关键帧定义 ===== */
+
+/* 淡入 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 淡入上移 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 弹跳 */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* 强力弹入 */
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+  70% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* 脉冲效果 */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* 加载进度条脉冲 */
+@keyframes loadingPulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(78,205,196,0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255,107,107,0.6);
+  }
+}
+
+/* 对话框弹出 */
+@keyframes dialogPop {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(15px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+/* 模态框滑入 */
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 缩放进入 */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 结果弹窗弹跳 */
+@keyframes resultBounce {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(-5deg);
+  }
+  50% {
+    transform: scale(1.05) rotate(2deg);
+  }
+  70% {
+    transform: scale(0.98) rotate(-1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+/* 星星弹出 */
+@keyframes starPop {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-180deg);
+  }
+  60% {
+    transform: scale(1.3) rotate(10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+/* 勋章闪光 */
+@keyframes badgeShine {
+  0%, 100% {
+    box-shadow: 0 5px 15px rgba(255,215,0,0.4);
+  }
+  50% {
+    box-shadow: 0 8px 25px rgba(255,215,0,0.7), 0 0 40px rgba(255,215,0,0.3);
+  }
+}
+
+/* 正确答案脉冲 */
+@keyframes correctPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(149,225,211,0.6);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* 错误抖动 */
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-12px);
+  }
+  40% {
+    transform: translateX(12px);
+  }
+  60% {
+    transform: translateX(-8px);
+  }
+  80% {
+    transform: translateX(8px);
+  }
+}
+
+/* 浮动效果 */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+  66% {
+    transform: translateY(-5px) rotate(-2deg);
+  }
+}
+
+/* 旋转 */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 眼睛眨眼（护眼） */
+@keyframes eyeBlink {
+  0%, 45%, 55%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.1);
+  }
+}
+
+/* 眼睛移动（护眼操） */
+@keyframes eyeMove {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(20px);
+  }
+  75% {
+    transform: translateX(-20px);
+  }
+}
+
+/* 标签跳动 */
+@keyframes labelBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  60% {
+    transform: translateY(-8px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 部件高亮发光 */
+@keyframes partGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(255,215,0,0.4), 0 0 20px rgba(255,215,0,0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255,215,0,0.8), 0 0 40px rgba(255,215,0,0.4);
+  }
+}
+
+/* 儿歌文字发光 */
+@keyframes rhymeGlow {
+  0%, 100% {
+    text-shadow: 0 0 8px rgba(255,182,193,0.3);
+  }
+  50% {
+    text-shadow: 0 0 16px rgba(255,182,193,0.6), 0 0 24px rgba(255,182,193,0.3);
+  }
+}
+
+/* 数字脉冲 */
+@keyframes numberPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* 当前关卡脉冲提示 */
+@keyframes currentPulse {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(255,193,7,0.3);
+  }
+  50% {
+    box-shadow: 0 4px 30px rgba(255,193,7,0.7), 0 0 50px rgba(255,193,7,0.3);
+  }
+}
+
+/* 庆祝粒子效果 - 心形飘落 */
+@keyframes heartFloat {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg) scale(0);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-30px) rotate(-20deg) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-200px) rotate(45deg) scale(0.5);
+  }
+}
+
+/* 庆祝粒子效果 - 星星闪烁 */
+@keyframes starSparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) rotate(180deg);
+  }
+}
+
+/* 彩带/纸屑下落 */
+@keyframes confettiFall {
+  0% {
+    opacity: 1;
+    transform: translateY(-100vh) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100vh) rotate(720deg);
+  }
+}
+
+/* 成功庆祝组合动画 */
+.celebration-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 700;
+  overflow: hidden;
+}
+
+.celebration-particle {
+  position: absolute;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+.particle-heart {
+  font-size: 28px;
+  animation-name: heartFloat;
+}
+
+.particle-star {
+  font-size: 32px;
+  animation-name: starSparkle;
+}
+
+.particle-confetti {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  animation-name: confettiFall;
+}
+
+/* 进度条填充动画 */
+@keyframes progressFill {
+  from {
+    width: 0%;
+  }
+}
+
+/* 按钮涟漪效果 */
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.ripple-effect:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* 打字机效果 */
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* 闪烁光标 */
+@keyframes blinkCursor {
+  0%, 100% {
+    border-right-color: transparent;
+  }
+  50% {
+    border-right-color: var(--text-primary);
+  }
+}
+
+/* 角色状态切换过渡 */
+.character-transition {
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* 页面切换过渡 */
+.page-transition-enter {
+  animation: pageEnter 0.4s ease-out;
+}
+
+.page-transition-exit {
+  animation: pageExit 0.3s ease-in forwards;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pageExit {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+}

@@ -1,0 +1,456 @@
+/* ===== 算盘组件样式 ===== */
+
+.abacus-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 15px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,250,205,0.9));
+  border-radius: 30px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  margin: 20px auto;
+  max-width: 700px;
+  border: 4px solid var(--primary-pink);
+}
+
+.abacus-title {
+  font-size: 26px;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.abacus-canvas-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#abacus-canvas {
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#abacus-canvas:hover {
+  transform: scale(1.02);
+}
+
+.abacus-value-display {
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--btn-primary);
+  text-align: center;
+  margin: 18px 0;
+  padding: 15px 35px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  min-width: 150px;
+  border: 3px solid var(--primary-yellow);
+}
+
+.abacus-controls {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.abacus-btn {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 22px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-reset {
+  background: linear-gradient(135deg, #FFB74D, #FF9800);
+  color: white;
+}
+
+.btn-reset:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(255,152,0,0.35);
+}
+
+.btn-demo {
+  background: linear-gradient(135deg, var(--btn-secondary), #45b7aa);
+  color: white;
+}
+
+.btn-demo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(78,205,196,0.35);
+}
+
+.btn-confirm {
+  background: linear-gradient(135deg, var(--btn-primary), #ff5252);
+  color: white;
+  font-size: 19px;
+  padding: 16px 35px;
+}
+
+.btn-confirm:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 18px rgba(255,107,107,0.4);
+}
+
+/* 算盘教学模式 */
+.teaching-mode .abacus-container {
+  max-width: 900px;
+}
+
+.teaching-step-info {
+  width: 100%;
+  background: linear-gradient(135deg, #E3F2FD, #FFF9C4);
+  border-radius: 20px;
+  padding: 22px 25px;
+  margin-bottom: 20px;
+  border-left: 6px solid var(--btn-secondary);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.step-number {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  background: var(--btn-secondary);
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 36px;
+  font-weight: bold;
+  font-size: 18px;
+  margin-right: 12px;
+}
+
+.step-text {
+  font-size: 19px;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.rhyme-display {
+  background: linear-gradient(135deg, #FFF0F5, #FFE4E1);
+  border-radius: 20px;
+  padding: 25px;
+  margin: 20px 0;
+  text-align: center;
+  border: 3px dashed var(--primary-pink);
+  position: relative;
+}
+
+.rhyme-text {
+  font-size: 26px;
+  color: var(--text-primary);
+  font-weight: bold;
+  line-height: 1.8;
+  animation: rhymeGlow 2s ease-in-out infinite;
+}
+
+.rhyme-number {
+  font-size: 48px;
+  color: var(--btn-primary);
+  display: block;
+  margin: 15px 0;
+  animation: numberPulse 1.5s ease-in-out infinite;
+}
+
+/* 算盘部件标注 */
+.part-label {
+  position: absolute;
+  background: rgba(255,107,107,0.95);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  pointer-events: none;
+  animation: labelBounce 0.5s ease-out;
+  box-shadow: 0 4px 12px rgba(255,107,107,0.4);
+  z-index: 10;
+  white-space: nowrap;
+}
+
+.part-label::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid rgba(255,107,107,0.95);
+}
+
+.part-highlight {
+  animation: partGlow 1.5s ease-in-out infinite;
+}
+
+/* 练习模式 */
+.practice-mode {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  align-items: start;
+}
+
+.target-display {
+  background: white;
+  border-radius: 25px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  border: 3px solid var(--primary-blue);
+}
+
+.target-label {
+  font-size: 18px;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.target-number {
+  font-size: 72px;
+  font-weight: bold;
+  color: var(--btn-primary);
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.1);
+}
+
+.feedback-area {
+  background: white;
+  border-radius: 25px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  border: 3px solid var(--success);
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.feedback-icon {
+  font-size: 60px;
+  margin-bottom: 15px;
+  animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.feedback-text {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.feedback-correct {
+  color: var(--success);
+  border-color: var(--success);
+}
+
+.feedback-wrong {
+  color: var(--error);
+  border-color: var(--error);
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .abacus-container {
+    padding: 18px 12px;
+    border-radius: 22px;
+    margin: 15px auto;
+  }
+  
+  .abacus-title {
+    font-size: 21px;
+  }
+  
+  .abacus-value-display {
+    font-size: 26px;
+    padding: 12px 25px;
+  }
+  
+  .abacus-btn {
+    padding: 11px 22px;
+    font-size: 15px;
+  }
+  
+  .practice-mode {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  
+  .target-number {
+    font-size: 56px;
+  }
+  
+  .rhyme-text {
+    font-size: 21px;
+  }
+  
+  .rhyme-number {
+    font-size: 38px;
+  }
+  
+  .step-text {
+    font-size: 16px;
+  }
+}
+
+/* ===== Pad/平板适配 (768px - 1366px) ===== */
+@media (min-width: 768px) and (max-width: 1366px) {
+  .abacus-container {
+    padding: 30px 25px;
+    max-width: 850px;
+    border-radius: 35px;
+  }
+
+  .abacus-title {
+    font-size: 30px;
+    margin-bottom: 25px;
+  }
+
+  .abacus-canvas-wrapper {
+    margin-bottom: 25px;
+  }
+
+  #abacus-canvas {
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+  }
+
+  #abacus-canvas:hover {
+    transform: scale(1.01);
+  }
+
+  .abacus-value-display {
+    font-size: 38px;
+    padding: 18px 45px;
+    min-width: 200px;
+    border-radius: 25px;
+  }
+
+  .abacus-controls {
+    gap: 20px;
+    margin-top: 25px;
+  }
+
+  .abacus-btn {
+    padding: 16px 32px;
+    font-size: 19px;
+    min-height: 56px;
+    border-radius: 28px;
+  }
+
+  .btn-confirm {
+    font-size: 21px;
+    padding: 18px 40px;
+    min-height: 60px;
+  }
+
+  .teaching-mode .abacus-container {
+    max-width: 1000px;
+  }
+
+  .teaching-step-info {
+    padding: 26px 30px;
+    border-radius: 25px;
+  }
+
+  .step-number {
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    font-size: 20px;
+  }
+
+  .step-text {
+    font-size: 21px;
+  }
+
+  .rhyme-display {
+    padding: 30px;
+    border-radius: 25px;
+  }
+
+  .rhyme-text {
+    font-size: 29px;
+  }
+
+  .rhyme-number {
+    font-size: 54px;
+  }
+
+  .practice-mode {
+    gap: 30px;
+  }
+
+  .target-display,
+  .feedback-area {
+    padding: 35px;
+    border-radius: 30px;
+  }
+
+  .target-number {
+    font-size: 82px;
+  }
+
+  .feedback-icon {
+    font-size: 70px;
+  }
+
+  .feedback-text {
+    font-size: 24px;
+  }
+
+  .part-label {
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 18px;
+  }
+}
+
+@media (min-width: 769px) and (orientation: landscape) and (max-height: 800px) {
+  .abacus-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 25px 30px;
+  }
+
+  .abacus-title {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .abacus-canvas-wrapper {
+    flex: 1;
+    min-width: 400px;
+    max-width: 600px;
+  }
+
+  .abacus-value-display,
+  .abacus-controls {
+    width: 100%;
+  }
+}
